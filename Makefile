@@ -168,7 +168,7 @@ prepare_arm_data:
 # Rebuild the redis binary file in order to avoid the page-size problem when running on the arm64 machine
 compile_redis:
 	@echo $(CURDIR)
-	cd $(CURDIR)/redis && $(CURDIR)/redis/rpm_builder.sh && cd - ;
+	# cd $(CURDIR)/redis && $(CURDIR)/redis/rpm_builder.sh && cd - ;
 	@echo "copy redis file to goharbor harbor photon redis fodler"
 	cp -r $(CURDIR)/redis/. $(BUILDPATH)/make/photon/redis
 	
