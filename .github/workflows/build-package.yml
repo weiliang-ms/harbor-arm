@@ -49,8 +49,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
             path: src/github.com/goharbor/harbor-arm
-      - name: donwload
-        run: make download
       - name: Build Harbor-ARM Images
         run: |
           set -x
@@ -112,6 +110,9 @@ jobs:
             Harbor_Build_Base_Tag=dev-arm
           fi
 
+          ls
+          make download
+          
           cd src/github.com/goharbor/harbor-arm
           sudo make package_online GOBUILDTAGS="include_oss include_gcs" BASEIMAGETAG=${Harbor_Build_Base_Tag} VERSIONTAG=${Harbor_Assets_Version} PKGVERSIONTAG=${Harbor_Package_Version} BUILDBIN=true NOTARYFLAG=true CHARTFLAG=true TRIVYFLAG=true HTTPPROXY=
           harbor_online_build_bundle=$(basename harbor-online-installer-arm-*.tgz)
