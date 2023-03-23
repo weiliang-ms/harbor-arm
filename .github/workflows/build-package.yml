@@ -57,3 +57,20 @@ jobs:
           make pre_update
           make compile COMPILETAG=compile_golangimage
           make build GOBUILDTAGS="include_oss include_gcs" BUILDBIN=true NOTARYFLAG=true TRIVYFLAG=true CHARTFLAG=true GEN_TLS=true PULL_BASE_FROM_DOCKERHUB=false
+          docker images
+          docker save \
+            goharbor/nginx-photon:dev-arm \
+            goharbor/redis-photon:dev-arm \
+            goharbor/harbor-jobservice:dev-arm \
+            goharbor/harbor-portal:dev-arm \
+            goharbor/harbor-core:dev-arm \
+            goharbor/harbor-db:dev-arm \
+            goharbor/harbor-registryctl:dev-arm \
+            goharbor/registry-photon:dev-arm \
+            goharbor/harbor-log:dev-arm \
+            -o ~/harbor-dev-arm.tar
+          gzip ~/harbor-dev-arm.tar
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ~/harbor-dev-arm.tar.gz
