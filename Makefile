@@ -57,9 +57,9 @@ HARBOR_PHOTON_EXPORTER_PATH=$(BUILDPATH)/make/photon/exporter/Dockerfile
 HARBOR_PUSHIMAGE_PATH=$(BUILDPATH)/make/pushimage.sh
 
 # download goharbor/harbor parammeters
-HARBOR_SOURCE_URL=https://github.com/goharbor/harbor.git
+HARBOR_SOURCE_URL=https://github.com/weiliang-ms/harbor.git
 SRCPATH=src/github.com/goharbor/harbor
-HARBOR_TAG=release-2.3.0
+HARBOR_TAG=release-2.7.0
 
 # makefile path
 MAKEPATH=$(BUILDPATH)/make

@@ -4,7 +4,7 @@ set -e
 
 name='redis'
 version='6.0.15'
-core_branch='release-2.3.0'
+core_branch='release-2.7.0'
 
 function checkdep {
 	if ! wget --version &> /dev/null
