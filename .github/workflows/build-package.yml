@@ -7,8 +7,8 @@ on:
     branches:
       - main
       - release-*
-  schedule:
-    - cron: 0 2 * * *
+#   schedule:
+#     - cron: 0 2 * * *
 jobs:
   BUILD_PACKAGE:
     env:
